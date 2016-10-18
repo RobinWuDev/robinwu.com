@@ -1,0 +1,3 @@
+[submodule "submodule/blog/public"]
+	path = submodule/blog/public
+	url = https://github.com/RobinWuDev/RobinWuDev.github.io.git
