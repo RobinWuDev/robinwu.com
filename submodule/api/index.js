@@ -4,8 +4,8 @@
 var Express = require('express');
 var app = Express();
 
-app.get('/*', function(req, res) {
-    res.send('Api');
-});
+const mingyan = require('./routers/mingyan');
+
+app.use('/mingyan',mingyan);
 
 module.exports = app;
