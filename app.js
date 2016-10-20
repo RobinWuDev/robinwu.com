@@ -12,6 +12,7 @@ if(process.env.NODE_ENV == "dev") {
     domain = "robinwu1.com";
 }
 
+app.use('/',blog);
 app.use(vhost("blog." + domain,blog));
 app.use(vhost("api." + domain,api));
 app.use(vhost("music." + domain,music));
