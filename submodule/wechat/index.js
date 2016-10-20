@@ -13,10 +13,7 @@ const config = {
 
 app.use(Express.query());
 app.get('/',wechat(config,function (req,res,next) {
-    var message = req.weixin;
-    if(message.msgType == "text") {
-        res.reply("hehe");
-    }
+    res.reply("hehe");
 }));
 
 module.exports = app;

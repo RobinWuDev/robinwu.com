@@ -12,6 +12,7 @@ if(process.env.NODE_ENV == "dev") {
     domain = "robinwu1.com";
 }
 
+app.use(Express.query());
 app.use(vhost(domain,blog));
 app.use(vhost("www." + domain,blog));
 app.use(vhost("blog." + domain,blog));
