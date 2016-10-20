@@ -7,10 +7,17 @@ var api = require('./submodule/api');
 var music = require('./submodule/music');
 var wechat = require('./submodule/wechat');
 
-app.use(vhost("blog.robinwu1.com",blog));
-app.use(vhost("api.robinwu1.com",api));
-app.use(vhost("music.robinwu1.com",music));
-app.use(vhost("wechat.robinwu1.com",wechat));
+var domain = "robinwu.com";
+if(process.env.NODE_ENV == "dev") {
+    domain = "robinwu1.com";
+}
 
-// app.listen(80);
+app.use(vhost("blog." + domain,blog));
+app.use(vhost("api." + domain,api));
+app.use(vhost("music." + domain,music));
+app.use(vhost("wechat." + domain,wechat));
+
+if(process.env.NODE_ENV != "dev") {
+    app.listen(80);
+}
 module.exports = app;
