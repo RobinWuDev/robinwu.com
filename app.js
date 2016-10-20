@@ -1,5 +1,10 @@
 var Express = require('express');
 var vhost = require('vhost');
+var fs = require('fs')
+var morgan = require('morgan')
+var path = require('path')
+var accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), {flags: 'a'})
+
 
 var app = Express();
 var blog = require('./submodule/blog');
@@ -12,6 +17,7 @@ if(process.env.NODE_ENV == "dev") {
     domain = "robinwu1.com";
 }
 
+app.use(morgan('combined',{stream: accessLogStream}));
 app.use(Express.query());
 app.use(vhost(domain,blog));
 app.use(vhost("www." + domain,blog));
