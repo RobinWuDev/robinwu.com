@@ -1,11 +1,24 @@
 /**
  * Created by Robin on 2016/10/12.
  */
-var Express = require('express');
-var app = Express();
+const Express = require('express');
+const app = Express();
+const WeChat = require('wechat');
 
-app.get('/*', function(req, res) {
-    res.send('Wechat');
+const config = {
+    token: 'token',
+    appid: 'appid',
+    encodingAESKey: 'encodinAESKey'
+};
+
+const webChat = new WeChat(config,function (req, res, next) {
+    var message = req.weixin;
+    if(message.msgType == "text") {
+        res.reply("hehe");
+    }
 });
+
+
+app.get('/',webChat);
 
 module.exports = app;
