@@ -11,7 +11,7 @@ var blog = require('./submodule/blog');
 var api = require('./submodule/api');
 var music = require('./submodule/music');
 var wechat = require('./submodule/wechat');
-var file = require('./submodule/wechat');
+var file = require('./submodule/file');
 
 var domain = "robinwu.com";
 if(process.env.NODE_ENV == "dev") {
