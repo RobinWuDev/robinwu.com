@@ -12,7 +12,7 @@ const config = {
 };
 
 app.use(Express.query());
-app.get('/',wechat(config,function (req,res,next) {
+app.use('/',wechat(config,function (req,res,next) {
     res.reply("hehe");
 }));
 
