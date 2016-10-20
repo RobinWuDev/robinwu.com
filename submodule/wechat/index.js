@@ -26,7 +26,7 @@ app.use('/',wechat(config,function (req,res,next) {
         case 0: {
             mingYan.rand(function (code, data) {
                 if(code == 0) {
-                    let content = data.content + "\n--" + data.author;
+                    let content = data.content + "\n----" + data.author;
                     res.reply(content);
                 } else {
                     replyRrror(code);

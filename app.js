@@ -11,6 +11,7 @@ var blog = require('./submodule/blog');
 var api = require('./submodule/api');
 var music = require('./submodule/music');
 var wechat = require('./submodule/wechat');
+var file = require('./submodule/wechat');
 
 var domain = "robinwu.com";
 if(process.env.NODE_ENV == "dev") {
@@ -25,6 +26,7 @@ app.use(vhost("blog." + domain,blog));
 app.use(vhost("api." + domain,api));
 app.use(vhost("music." + domain,music));
 app.use(vhost("wechat." + domain,wechat));
+app.use(vhost("file." + domain,file));
 
 if(process.env.NODE_ENV != "dev") {
     app.listen(80);
