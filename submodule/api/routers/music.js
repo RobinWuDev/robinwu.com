@@ -5,14 +5,14 @@ const Express = require('express');
 const router = Express.Router();
 const Util = require('../util');
 const util = new Util();
-const MingYan = require('../model/mingyan');
-const mingYan = new MingYan();
+const Music = require('../model/music');
+const music = new Music();
 
 /**
- * 随机获取名言
+ * 随机获取音乐
  */
 router.get('/rand',function (req,res) {
-    mingYan.rand(function (code,resData) {
+    music.rand(function (code,resData) {
         var obj = util.resObj(code,resData);
         res.json(obj);
     });
