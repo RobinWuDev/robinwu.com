@@ -1,0 +1,11 @@
+#EXTM3U
+#EXT-X-VERSION:3
+#EXT-X-MEDIA-SEQUENCE:285
+#EXT-X-TARGETDURATION:8
+#QT-BITRATE:24
+#EXTINF:7.012433,
+http://file.robinwu1.com:3000/hls/39/027.ts
+#EXTINF:6.989211,
+http://file.robinwu1.com:3000/hls/39/028.ts
+#EXTINF:6.989211,
+http://file.robinwu1.com:3000/hls/39/029.ts

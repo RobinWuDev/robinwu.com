@@ -4,8 +4,6 @@
 var Express = require('express');
 var app = Express();
 
-app.get('/*', function(req, res) {
-    res.send('Music');
-});
+app.use(Express.static(__dirname + '/public'));
 
 module.exports = app;
