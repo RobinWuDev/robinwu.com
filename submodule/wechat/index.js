@@ -37,11 +37,15 @@ app.use('/',wechat(config,function (req,res,next) {
         case 1: {
             music.rand(function (code, data) {
                 if(code == 0) {
+                    var singer = "未知";
+                    if(data.singer.length  > 0) {
+                        singer = data.singer;
+                    }
                     res.reply({
                         type: "music",
                         content: {
                             title: data.name,
-                            description: "歌手:" + data.singer,
+                            description: "歌手:" + singer,
                             musicUrl: data.url,
                             hqMusicUrl: data.url
                         }
