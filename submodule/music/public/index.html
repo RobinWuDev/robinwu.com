@@ -19,7 +19,7 @@
     videojs.options.flash.swf = "./vender/videojs/video-js.swf";
     var player = videojs('my-video');
     player.src({
-        src: "http://file.robinwu1.com:3000/hls/index.m3u8",
+        src: "http://file.robinwu.com/hls/index.m3u8",
         type: 'application/x-mpegURL',
         withCredentials: false
     });
@@ -37,7 +37,7 @@
 
             console.log("start upload");
             var xhr = new XMLHttpRequest();
-            xhr.open("POST","http://file.robinwu1.com:3000" + "/upload",true);
+            xhr.open("POST","http://file.robinwu.com" + "/upload",true);
             xhr.send(fd);
             xhr.onreadystatechange = function() {
                 if (xhr.readyState == 4) {
