@@ -47,6 +47,7 @@ MusicModel.prototype.add = function (name,type,callBack) {
         db.getConn().hmset(music_id,"name",name,"singer","","album",albumName,"url",url,function (err, res) {
             if(!err) {
                 db.getConn().rpush("rb_music_ids",music_id);
+                db.getConn().rpush("rb_play_music",music_id);
                 console.log("add ids success",music_id);
                 callBack(musicIdNumber);
             } else {
