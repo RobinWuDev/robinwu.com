@@ -3,6 +3,7 @@ var vhost = require('vhost');
 var fs = require('fs')
 var morgan = require('morgan')
 var path = require('path')
+var helmet = require('helmet');
 var accessLogStream = fs.createWriteStream(path.join(__dirname, '../access.log'), {flags: 'a'})
 
 
@@ -22,10 +23,11 @@ var allowCrossDomain = function(req, res, next) {
     res.header('Access-Control-Allow-Origin', "*");
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
+    res.cookie('sessionid', '1', { httpOnly: true });
     next();
 }
 
-
+app.use(helmet());
 app.use(allowCrossDomain);
 app.use(morgan('combined',{stream: accessLogStream}));
 app.use(Express.query());
