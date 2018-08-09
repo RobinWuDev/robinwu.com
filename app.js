@@ -4,6 +4,7 @@ var fs = require('fs')
 var morgan = require('morgan')
 var path = require('path')
 var helmet = require('helmet');
+var session = require('express-session')
 var accessLogStream = fs.createWriteStream(path.join(__dirname, '../access.log'), {flags: 'a'})
 
 
@@ -38,6 +39,12 @@ app.use(vhost("api." + domain,api));
 app.use(vhost("music." + domain,music));
 app.use(vhost("wechat." + domain,wechat));
 app.use(vhost("file." + domain,file));
+app.use(session({
+    genid: function(req) {
+        return genuuid() // use UUIDs for session IDs
+    },
+    secret: 'robinwu love you'
+}));
 
 if(process.env.NODE_ENV != "dev") {
     app.listen(80);
